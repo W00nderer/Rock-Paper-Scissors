@@ -78,7 +78,7 @@ function getRandomColor() {
 
 function init() {
   particleArray1 = [];
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 300; i++) {
     let size = Math.random() * 20;
     let x = Math.random() * canvas.width;
     let y = Math.random() * (canvas.height + buffer) - buffer;
@@ -114,7 +114,7 @@ animate();
 
 function goDownInit1() {
   buttonCheck=1;
-  intervalID = setInterval(goDown, 15);
+  intervalID = setInterval(goDown, 10);
 }
 function goDownInit2() {
   buttonCheck=2;
@@ -140,9 +140,9 @@ function slowDownInit1(){
 }
 function slowDown(){
   if (test1 > 0) {
-    test1-=0.1;
+    test1-=0.2;
     for (let i = 0; i < particleArray1.length; i++){
-      particleArray1[i].directionY -= test*0.1;
+      particleArray1[i].directionY -= test*0.2;
     }
   } else {
     clearInterval(intervalID);
@@ -184,7 +184,7 @@ function showComputerPage(){
 
 function twoPlayerToIntro(){
   checkpoint=1;
-  intervalID=setInterval(twoPlayerFadeOut, 15);
+  intervalID=setInterval(twoPlayerFadeOut, 10);
 }
 
 function twoPlayerFadeOut(){
@@ -211,9 +211,9 @@ function slowDownInit2(){
 }
 function slowDown2(){
   if (test1 > 0) {
-    test1-=0.1;
+    test1-=0.2;
     for (let i = 0; i < particleArray1.length; i++){
-      particleArray1[i].directionY += test*0.1;
+      particleArray1[i].directionY += test*0.2;
     }
   } else {
     clearInterval(intervalID);
@@ -240,7 +240,7 @@ function showIntroPage(){
 
 function computerPageToIntro(){
   checkpoint=1;
-  intervalID=setInterval(computerPageFadeOut, 15);
+  intervalID=setInterval(computerPageFadeOut, 10);
 }
 
 function computerPageFadeOut(){
