@@ -112,6 +112,8 @@ animate();
 
 //PAGE TRANSITION
 
+//GO/SLOW DOWN UNITS
+
 function goDownInit1() {
   buttonCheck=1;
   intervalID = setInterval(goDown, 10);
@@ -127,7 +129,7 @@ function goDown() {
     for (let i = 0; i < particleArray1.length; i++){
       particleArray1[i].directionY += test*0.2;
     }
-    introPageOpacity-=0.01;
+    introPageOpacity-=0.015;
     introPage.style.opacity = introPageOpacity;
   } else {
     clearInterval(intervalID);
@@ -155,57 +157,7 @@ function slowDown(){
     }
   }
 }
-function twoPlayerFadeIn(){
-  intervalID=setInterval(showTwoPlayerPage, 8);
-}
-function showTwoPlayerPage(){
-  twoPlayerPage.style.display="flex";
-  if(twoPlayerPageOpacity<1){
-    twoPlayerPageOpacity+=0.01;
-    twoPlayerPage.style.opacity=twoPlayerPageOpacity;
-  }else{
-    clearInterval(intervalID);
-  }
-}
-function computerPageFadeIn(){
-  intervalID=setInterval(showComputerPage, 8);
-}
-function showComputerPage(){
-  computerPlaysPage.style.display="flex";
-  if(computerPageOpacity<1){
-    computerPageOpacity+=0.01;
-    computerPlaysPage.style.opacity=computerPageOpacity;
-  }else{
-    clearInterval(intervalID);
-  }
-}
 
-
-
-function twoPlayerToIntro(){
-  checkpoint=1;
-  intervalID=setInterval(twoPlayerFadeOut, 10);
-}
-
-function twoPlayerFadeOut(){
-  if (twoPlayerPageOpacity>0){
-    test1+=0.2;
-    for (let i = 0; i < particleArray1.length; i++){
-      particleArray1[i].directionY -= test*0.2;
-    }
-    twoPlayerPageOpacity-=0.01;
-    twoPlayerPage.style.opacity=twoPlayerPageOpacity;
-  } else {
-    clearInterval(intervalID);
-    twoPlayerPage.style.display="none";
-    reset();
-    p2WinCount=0;
-    p2WinText.innerText=p2WinCount;
-    p1WinCount=0;
-    p1WinText.innerText=p1WinCount;
-    slowDownInit2();
-  }
-}
 function slowDownInit2(){
   intervalID=setInterval(slowDown2,10);
 }
@@ -222,6 +174,50 @@ function slowDown2(){
     introFadeIn();
   }
 }
+
+
+//TWO PLAYERS FADE IN/OUT
+
+function twoPlayerFadeIn(){
+  intervalID=setInterval(showTwoPlayerPage, 8);
+}
+function showTwoPlayerPage(){
+  twoPlayerPage.style.display="flex";
+  if(twoPlayerPageOpacity<1){
+    twoPlayerPageOpacity+=0.03;
+    twoPlayerPage.style.opacity=twoPlayerPageOpacity;
+  }else{
+    clearInterval(intervalID);
+  }
+}
+
+function twoPlayerToIntro(){
+  checkpoint=1;
+  intervalID=setInterval(twoPlayerFadeOut, 10);
+}
+
+function twoPlayerFadeOut(){
+  if (twoPlayerPageOpacity>0){
+    test1+=0.2;
+    for (let i = 0; i < particleArray1.length; i++){
+      particleArray1[i].directionY -= test*0.2;
+    }
+    twoPlayerPageOpacity-=0.015;
+    twoPlayerPage.style.opacity=twoPlayerPageOpacity;
+  } else {
+    clearInterval(intervalID);
+    twoPlayerPage.style.display="none";
+    reset();
+    p2WinCount=0;
+    p2WinText.innerText=p2WinCount;
+    p1WinCount=0;
+    p1WinText.innerText=p1WinCount;
+    slowDownInit2();
+  }
+}
+
+//INTRO PAGE FADE IN
+
 function introFadeIn(){
   intervalID=setInterval(showIntroPage, 8);
 }
@@ -229,14 +225,27 @@ function introFadeIn(){
 function showIntroPage(){
   introPage.style.display="flex";
   if(introPageOpacity<1){
-    introPageOpacity+=0.01;
+    introPageOpacity+=0.03;
     introPage.style.opacity=introPageOpacity;
   }else{
     clearInterval(intervalID);
   }
 }
 
+//COMPUTER PAGE FADE IN/OUT
 
+function computerPageFadeIn(){
+  intervalID=setInterval(showComputerPage, 8);
+}
+function showComputerPage(){
+  computerPlaysPage.style.display="flex";
+  if(computerPageOpacity<1){
+    computerPageOpacity+=0.03;
+    computerPlaysPage.style.opacity=computerPageOpacity;
+  }else{
+    clearInterval(intervalID);
+  }
+}
 
 function computerPageToIntro(){
   checkpoint=1;
@@ -249,7 +258,7 @@ function computerPageFadeOut(){
     for (let i = 0; i < particleArray1.length; i++){
       particleArray1[i].directionY -= test*0.2;
     }
-    computerPageOpacity-=0.01;
+    computerPageOpacity-=0.015;
     computerPlaysPage.style.opacity=computerPageOpacity;
   } else {
     clearInterval(intervalID);
